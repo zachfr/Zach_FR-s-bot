@@ -38,8 +38,8 @@ module.exports.run = async (bot, message, args) => {
     }
 
     message.guild.channels.create(channelName, { parent: SupportCategory.id, topic: `Ticket Owner: ${message.author.id}`}).then(c => {
-        const sr = message.guild.roles.cache.get(supportrole)
-        const everyone = message.guild.roles.cache.find(role => role.name === "@everyone")
+        const sr = message.guild.roles.cache.get("725913350755844106");
+        const everyone = message.guild.roles.cache.get("724769262736244827");
         c.updateOverwrite(sr, {
             SEND_MESSAGES: true,
             VIEW_CHANNEL: true,
@@ -48,19 +48,19 @@ module.exports.run = async (bot, message, args) => {
             SEND_MESSAGES: false,
             VIEW_CHANNEL: false,
         });
-        c.updateOverwrite(message.author, {
+        c.updateOverwrite(message.author.id, {
             SEND_MESSAGES: true,
             VIEW_CHANNEL: true,
         });
         let CreatedTicketEmbed = new Discord.MessageEmbed()
-            .setColor("BLUE")
+            .setColor("RED")
             .setTitle("New Support Ticket")
             .setDescription(`<@${message.author.id}> Your support ticket channel is <#${c.id}>`)
             .setTimestamp()
             .setFooter("Zach_FR's plugin");
         message.channel.send(CreatedTicketEmbed)
         let aembed = new Discord.MessageEmbed()
-            .setColor("BLUE")
+            .setColor("RED")
             .addField("New Support Ticket", `<@${message.author.id}> Thanks for submitting a support ticket. Wait patiently and one of support will coming.`)
             .addField('Issue:', reason)
             .setTimestamp()
