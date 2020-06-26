@@ -13,11 +13,19 @@ module.exports.run = async (bot, message, args) => {
             .addField("❯ Name of server", '1.15, 1.12, 1.8, bot', true)
             .setFooter("Zach_FR's plugin");
         message.channel.send(helpserver);
+    } else if (args[0] === 'ticket') {
+        let help = new Discord.MessageEmbed()
+            .setTitle('Help center (Ticket)')
+            .addField("❯ !new <reason>", 'Create a ticket', true)
+            .addField("❯ !close", 'Close ticket', true)
+            .setFooter("Zach_FR's plugin");
+        message.channel.send(help);
     } else {
         let help = new Discord.MessageEmbed()
             .setTitle('Help center')
             .addField("❯ !help", 'Show help center', true)
             .addField("❯ !help server", 'Show help center server', true)
+            .addField("❯ !help ticket", 'Show help center ticket', true)
             .addField("❯ !songoda", 'Search plugin on Songoda', true)
             .addField("❯ !status", 'Show currently status of bot', true)
             .addField("❯ !setstatus", 'Set status of bot', true)
