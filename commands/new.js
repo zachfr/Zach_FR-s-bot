@@ -1,9 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    setTimeout(() => {
-        message.delete();
-    }, 5000)
     const reason = message.content.split(" ").slice(1).join(" ");
     let SupportCategory = message.guild.channels.cache.find(category => category.name === "Tickets");
     
@@ -69,7 +66,9 @@ module.exports.run = async (bot, message, args) => {
             .setFooter("Zach_FR's plugin");
         c.send(aembed)
     }).catch(console.error);
-    message.channel.bulkDelete(1);
+    setTimeout(() => {
+        message.delete();
+    }, 1000)
 }
 
 module.exports.help = {
