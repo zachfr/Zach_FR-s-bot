@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     let supportrole = message.member.roles.cache.has('725913350755844106');
     if (supportrole) {
-        if (message.channel.parent === 'TICKETS') {
+        if (message.channel.parent.name === 'Tickets') {
             message.channel.send('Please enter `confirm` to close ticket! You have 10 seconds').then(() => {
             const filter = m => message.author.id === m.author.id;
         
