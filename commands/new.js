@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    message.channel.bulkDelete(1);
+    setTimeout(() => {
+        message.delete();
+    }, 1000)
     const reason = message.content.split(" ").slice(1).join(" ");
     let SupportCategory = message.guild.channels.cache.find(category => category.name === "Tickets");
     
