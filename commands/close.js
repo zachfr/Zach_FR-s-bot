@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
                 });
             });
         } else {
-            message.channel.send("You need do this command in ticket");
+            message.channel.send("You need do this command in ticket channel");
         }
     } else {
         message.channel.send("You don't have permission to do that");
