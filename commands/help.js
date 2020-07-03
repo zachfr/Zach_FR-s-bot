@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
             .setTitle('Help center (Ticket)')
             .addField("❯ !new <reason>", 'Create a ticket', true)
             .addField("❯ !close", 'Close ticket', true)
+            .addField("❯ !add <name>", 'Add someone to ticket', true)
+            .addField("❯ !remove <name>", 'Remove someone to ticket', true)
             .setFooter("Zach_FR's plugin");
         message.channel.send(help);
     } else {
@@ -34,6 +36,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("❯ !prefix", 'Show currently prefix of bot', true)
             .addField("❯ !setprefix", 'Set prefix of bot', true)
             .addField("❯ !purge <number>", 'Delete message', true)
+            .addField("❯ !suggest <suggestion>", 'Make your suggestions', true)
             .addField("❯ !reload <command>", 'Reload command', true)
             .setFooter("Zach_FR's plugin");
         message.channel.send(help);
