@@ -6,7 +6,6 @@ const application = node.Client;
 module.exports.run = async (bot, message, args) => {
     var STAFF = message.member.roles.cache.has('725913350755844106');
     if (!STAFF) return message.channel.send(`You don't have the permision to do that, ${message.author}!`);
-    //if (args.length = 0) return message.channel.send(`You didn't provide server, ${message.author}!`);
     if (args[0] === '1.8') {
         application.getServerInfo('2ccad1d1').then(response => {
             application.getRAMUsage('2ccad1d1').then(ram => {
@@ -103,7 +102,10 @@ module.exports.run = async (bot, message, args) => {
                 })
             })
         })
-    }
+    } else message.channel.send(`You didn't provide server, ${message.author}!`);
+    setTimeout(() => {
+        message.delete();
+    }, 1000)
     
 }
 
