@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle(`New suggestion`)
         .addField(`Suggestion from:`, `<@${message.author.id}>`)
         .addField(`Suggestion:`, suggest)
+        .setTimestamp()
         .setFooter("Zach_FR's plugin");
     const channel_suggestion = bot.channels.cache.get('728372732059844619');
     channel_suggestion.send(suggestion).then(sentMessage => {
