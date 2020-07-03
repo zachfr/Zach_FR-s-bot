@@ -11,6 +11,7 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "fs": "0.0.1-security",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "nodeactyl": "^2.0.2"
   }
 }

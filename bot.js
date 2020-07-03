@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+const node = require('nodeactyl');
+const application = node.Client;
 const fs = require("fs");
 const bot = new Discord.Client();
 const config = require("./config.json");
@@ -8,6 +10,10 @@ const auth = require("./auth.json");
 bot.commands = new Discord.Collection();
 
 bot.login(auth.token);
+
+application.login(auth.HOST, auth.API, (logged_in, msg) => {
+    console.log(logged_in);
+});
 
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
