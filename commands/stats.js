@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
@@ -63,7 +63,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
@@ -79,7 +79,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
@@ -95,7 +95,7 @@ module.exports.run = async (bot, message, args) => {
                             ab.setDescription('Minecraft server 1.8.8')
                             ab.addField("❯ Name of server", response.attributes.name, true);
                             ab.addField("❯ Ram usage", `${ram.current}/${response.attributes.limits.memory}GB`, true);
-                            ab.addField("❯ Cpu usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
+                            ab.addField("❯ Disk usage", `${disk.current}/${response.attributes.limits.disk}MB`, true);
                             ab.addField("❯ Cpu usage", `${cpu.current}%`, true);
                         message.channel.send(ab);
                     })
