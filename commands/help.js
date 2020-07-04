@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("❯ !close", 'Close ticket', true)
             .addField("❯ !add <name>", 'Add someone to ticket', true)
             .addField("❯ !remove <name>", 'Remove someone to ticket', true)
+            .addField("❯ !archive", 'Archive ticket', true)
             .setFooter("Zach_FR's plugin");
         message.channel.send(help);
     } else {
