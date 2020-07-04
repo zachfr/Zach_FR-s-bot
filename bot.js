@@ -6,6 +6,7 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 const colors = require("./colors.json");
 const auth = require("./auth.json");
+console.log("Zach loading")
 console.log(config)
 
 bot.commands = new Discord.Collection();
