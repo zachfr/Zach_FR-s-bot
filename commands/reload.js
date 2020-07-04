@@ -19,6 +19,9 @@ module.exports.run = async (bot, message, args) => {
 		console.log(error);
 		message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
 	}
+	setTimeout(() => {
+        message.delete();
+    }, 1000)
 }
 
 module.exports.help = {

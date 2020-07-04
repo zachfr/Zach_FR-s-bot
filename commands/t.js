@@ -6,6 +6,9 @@ module.exports.run = async (bot, message, args) => {
         .setColor(colors.john_deere_green)
         .setTitle("John Deere");
     message.channel.send(a);
+    setTimeout(() => {
+        message.delete();
+    }, 1000)
 }
 
 module.exports.help = {

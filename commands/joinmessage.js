@@ -8,6 +8,9 @@ module.exports.run = async (bot, message, args) => {
         .setDescription('Custom join/leave message')
         .setFooter("Zach_FR's plugin");
     message.channel.send(joinmessage);
+    setTimeout(() => {
+        message.delete();
+    }, 1000)
 }
 
 module.exports.help = {
