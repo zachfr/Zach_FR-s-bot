@@ -24,16 +24,25 @@ module.exports.run = async (bot, message, args) => {
     let supportrole = message.guild.roles.cache.find(role => role.name === "Staff")
 
     if (!supportrole) {
-        return message.channel.send("You are not in the staff.")
-    }
-
-    if (!reason) {
-        return message.channel.send("Please enter a reason of ticket \n \`!new <reason>`")
+        message.channel.send("You are not in the staff.")
+        return setTimeout(() => {
+            message.delete();
+        }, 1000)
     }
 
     const channelName = `ticket-${message.author.username}`
     if (message.guild.channels.cache.find(channel => channel.name === `ticket-${message.author.username.toLowerCase()}`)) {
-        return message.channel.send("Sorry, you already have a ticket open.")
+        message.channel.send("Sorry, you already have a ticket open.")
+        return setTimeout(() => {
+            message.delete();
+        }, 1000)
+    }
+
+    if (!reason) {
+        message.channel.send("Please enter a reason of ticket \n \`!new <reason>`")
+        return setTimeout(() => {
+            message.delete();
+        }, 1000)
     }
 
     message.guild.channels.create(channelName, { parent: SupportCategory.id, topic: `Ticket Owner: ${message.author.id}`}).then(c => {
@@ -66,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
             .setFooter("Zach_FR's plugin");
         c.send(aembed)
     }).catch(console.error);
-    setTimeout(() => {
+    return setTimeout(() => {
         message.delete();
     }, 1000)
 }
@@ -74,3 +83,4 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
     name: "new"
 }
+module.exports.aliases = ["ticket"]
