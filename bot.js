@@ -17,8 +17,8 @@ bot.login(auth.token);
 application.login(auth.HOST, auth.API, (logged_in, msg) => {
     console.log(logged_in);
 });
-
-fs.readdir("./commands/", (err, files) => {
+///root/Zach_FRs_bot/commands/
+fs.readdir("/root/Zach_FRs_bot/commands/", (err, files) => {
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js");
@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
     }
 
     jsfile.forEach((f, i) => {
-        let props = require(`./commands/${f}`);
+        let props = require(`/root/Zach_FRs_bot/commands/${f}`);
         console.log(`${f} Ok!`);
         bot.commands.set(props.help.name, props);
         if (!props.aliases) return
