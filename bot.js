@@ -19,7 +19,7 @@ application.login(auth.HOST, auth.API, (logged_in, msg) => {
 });
 ///root/Zach_FRs_bot/commands/
 //./commands/
-fs.readdir("/root/Zach_FRs_bot/commands/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
 
     let jsfile = files.filter(f => f.split(".").pop() === "js");
@@ -29,7 +29,7 @@ fs.readdir("/root/Zach_FRs_bot/commands/", (err, files) => {
     }
 
     jsfile.forEach((f, i) => {
-        let props = require(`/root/Zach_FRs_bot/commands/${f}`);
+        let props = require(`./commands/${f}`);
         console.log(`${f} Ok!`);
         bot.commands.set(props.help.name, props);
         if (!props.aliases) return
@@ -42,6 +42,7 @@ fs.readdir("/root/Zach_FRs_bot/commands/", (err, files) => {
 bot.on("ready", async () => {
     console.log("Zach start");
     bot.user.setActivity("with Zach");
+    setInterval(function(){ channel(); }, 3000);
 });
 bot.on("message", async message => {
     if (message.author.bot) return;
