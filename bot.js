@@ -42,7 +42,6 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
     console.log("Zach start");
     bot.user.setActivity("with Zach");
-    setInterval(function(){ channel(); }, 3000);
 });
 bot.on("message", async message => {
     if (message.author.bot) return;
