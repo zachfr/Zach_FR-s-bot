@@ -1,54 +1,46 @@
 const Discord = require("discord.js");
+prefix = "!";
 
 module.exports.run = async (bot, message, args) => {
-    if (args[0] === 'server') {
-        const helpserver = new Discord.MessageEmbed()
-            .setTitle('Help center (Server)')
-            .addField("❯ !stats <name>", 'Show information on server', true)
-            .addField("❯ !kill <name>", 'Kill server', true)
-            .addField("❯ !start <name>", 'Start server', true)
-            .addField("❯ !restart <name>", 'Restart server', true)
-            .addField("❯ !stop <name>", 'Stop server', true)
-            .addField("❯ !exe <name> <command>", 'Send a command on server', true)
-            .addField("❯ Name of server", '1.8, 1.12, 1.15, 1.16, bot, factorio', true)
-            .setFooter("Zach_FR's plugin");
-        message.channel.send(helpserver);
-    } else if (args[0] === 'ticket') {
-        let help = new Discord.MessageEmbed()
-            .setTitle('Help center (Ticket)')
-            .addField("❯ !new <reason>", 'Create a ticket', true)
-            .addField("❯ !close", 'Close ticket', true)
-            .addField("❯ !add <name>", 'Add someone to ticket', true)
-            .addField("❯ !remove <name>", 'Remove someone to ticket', true)
-            .addField("❯ !archive", 'Archive ticket', true)
-            .setFooter("Zach_FR's plugin");
-        message.channel.send(help);
-    } else {
-        let help = new Discord.MessageEmbed()
-            .setTitle('Help center')
-            .addField("❯ !help", 'Show help center', true)
-            .addField("❯ !help server", 'Show help center server', true)
-            .addField("❯ !help ticket", 'Show help center ticket', true)
-            .addField("❯ !songoda", 'Search plugin on Songoda', true)
-            .addField("❯ !status", 'Show currently status of bot', true)
-            .addField("❯ !join message", 'Show Join message plugin', true)
-            .addField("❯ !info", 'Show information on bot', true)
-            .addField("❯ !prefix", 'Show currently prefix of bot', true)
-            .addField("❯ !download <type> <version>", 'Download version of minecraft server', true)
-            .addField("❯ !purge <number>", 'Delete message', true)
-            .addField("❯ !suggest <suggestion>", 'Make your suggestions', true)
-            .addField("❯ !userinfo <name>", 'Show information on user', true)
-            .addField("❯ !serverinfo", 'Show information on server', true)
-            .setFooter("Zach_FR's plugin");
-        message.channel.send(help);
+    const data = [];
+    const { commands } = message.client;
+
+    if (!args.length) {
+	    data.push('Here\'s a list of all my commands:\n ');
+        data.push(commands.map(command => command.help.name).join(', '));
+        data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+
+        return message.author.send(data, { split: true })
+	        .then(() => {
+		    if (message.channel.type === 'dm') return;
+		    message.reply('I\'ve sent you a DM with all my commands!');
+	    })
+	    .catch(error => {
+		    console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
+		    message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
+	    });
     }
-    setTimeout(() => {
-        message.delete();
-    }, 1000)
+    const name = args[0].toLowerCase();
+    const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+
+    if (!command) {
+	    return message.reply('that\'s not a valid command!');
+    }
+
+    data.push(`**Name:** ${command.help.name}`);
+
+    if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
+    if (command.help.description) data.push(`**Description:** ${command.help.description}`);
+    if (command.help.usage) data.push(`**Usage:** ${prefix}${command.help.name} ${command.help.usage}`);
+
+    //data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
+
+    message.channel.send(data, { split: true });
 }
 
 module.exports.help = {
     name: "help",
-    description: 'Show help center'
+    description: "Show help Center with command",
+    //usage: ""
 }
 module.exports.aliases = ["h"]

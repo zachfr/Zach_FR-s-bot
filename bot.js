@@ -17,8 +17,7 @@ bot.login(auth.token);
 application.login(auth.HOST, auth.API, (logged_in, msg) => {
     console.log(logged_in);
 });
-///root/Zach_FRs_bot/commands/
-//./commands/
+
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
 
