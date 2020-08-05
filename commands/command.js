@@ -46,5 +46,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "exe"
+    name: "exe",
+    description: "Send a command on server",
+    usage: "<server> <command>"
 }

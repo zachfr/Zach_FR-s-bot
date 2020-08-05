@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "download"
+    name: "download",
+    description: "Download a Minecraft version",
+    usage: "<Version> <VersionNumber>"
 }
 module.exports.aliases = ["dl"]

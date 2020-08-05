@@ -28,6 +28,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "archive"
+    name: "archive",
+    description: "Archive ticket"
 }
 module.exports.aliases = ["arch"]
