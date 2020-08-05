@@ -9,15 +9,15 @@ module.exports.run = async (bot, message, args) => {
 		return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
 	}
 
-	delete require.cache[require.resolve(`./${command.name}.js`)];
+	delete require.cache[require.resolve(`./${command.help.name}.js`)];
 
 	try {
-		const newCommand = require(`./${command.name}.js`);
-		message.client.commands.set(newCommand.name, newCommand);
-		message.channel.send(`Command \`${command.name}\` was reloaded!`);
+		const newCommand = require(`./${command.help.name}.js`);
+		message.client.commands.set(newCommand.help.name, newCommand);
+		message.channel.send(`Command \`${command.help.name}\` was reloaded!`);
 	} catch (error) {
 		console.log(error);
-		message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
+		message.channel.send(`There was an error while reloading a command \`${command.help.name}\`:\n\`${error.message}\``);
 	}
 	setTimeout(() => {
         message.delete();
