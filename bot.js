@@ -39,14 +39,14 @@ fs.readdir("./commands/", (err, files) => {
 })
 
 bot.on("ready", async () => {
-    console.log("Zach start");
+    console.log("Zach it's start");
     bot.user.setActivity("with Zach");
 });
 bot.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
     let prefix = config.prefix;
-    
+
     if(!message.content.startsWith(prefix)) return;
 
     let messageArray = message.content.split(" ");
