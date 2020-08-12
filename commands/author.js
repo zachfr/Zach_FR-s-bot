@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
     name: "author",
-    description: "Search a author ressourse from spigot",
+    description: "Search a author ressource from spigot",
     usage: "<AuthorName>"
 }
 //module.exports.aliases = []
