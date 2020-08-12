@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
 		const newCommand = require(`./${command.help.name}.js`);
 		message.client.commands.set(newCommand.help.name, newCommand);
 		message.channel.send(`Command \`${command.help.name}\` was reloaded!`);
+    console.log(`Command ${command.help.name} was reloaded!`);
 	} catch (error) {
 		console.log(error);
 		message.channel.send(`There was an error while reloading a command \`${command.help.name}\`:\n\`${error.message}\``);
