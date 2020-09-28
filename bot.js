@@ -6,6 +6,7 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 const colors = require("./colors.json");
 const auth = require("./auth.json");
+//const io = require("@pm2/io");
 console.log("Zach loading");
 console.log(config);
 
@@ -17,6 +18,10 @@ bot.login(auth.token);
 application.login(auth.HOST, auth.API, (logged_in, msg) => {
     console.log(logged_in);
 });
+
+/*const botname = io.metric({
+    name: 'Discord bot name',
+});*/
 
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
@@ -39,6 +44,7 @@ fs.readdir("./commands/", (err, files) => {
 })
 
 bot.on("ready", async () => {
+    //botname.set("Zach_FR Bot");
     console.log("Zach it's start");
     bot.user.setActivity("with Zach");
 });
