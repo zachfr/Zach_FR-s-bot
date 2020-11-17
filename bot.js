@@ -6,6 +6,7 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 const colors = require("./colors.json");
 const auth = require("./auth.json");
+const { Console } = require("console");
 //const io = require("@pm2/io");
 console.log("Zach loading");
 console.log(config);
@@ -62,4 +63,22 @@ bot.on("message", async message => {
     if (bot.aliases.has(command.slice(prefix.length).toLowerCase())) bot.commands.get(bot.aliases.get(command.slice(prefix.length).toLowerCase())).run(bot, message, args, prefix)
     if (bot.commands.has(command.slice(prefix.length).toLowerCase())) bot.commands.get(command.slice(prefix.length).toLowerCase()).run(bot, message, args, prefix)
 
+});
+
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+    //let newUserChannel = newMember.voiceChannel
+    //let oldUserChannel = oldMember.voiceChannel
+
+    //console.log(newMember);
+    /*if(oldUserChannel === undefined && newUserChannel !== undefined) {
+  
+       // User Joins a voice channel
+       console.log("Someone join channel");
+  
+    } else if(newUserChannel === undefined){
+  
+      // User leaves a voice channel
+      console.log("Someone leave channel");
+  
+    }*/
 });
