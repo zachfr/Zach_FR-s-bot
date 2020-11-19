@@ -41,14 +41,16 @@ module.exports.run = async (bot, message, args) => {
                         collector.stop();
                         let embed = new Discord.MessageEmbed()
                             .setTitle("Bonne réponse")
-                            .setDescription("Bravo à toi, tu as trouvé la bonne réponse.");
+                            .setDescription("Bravo à toi, tu as trouvé la bonne réponse.")
+                            .setColor("#1ba124");
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }else{
                         collector.stop();
                         let embed = new Discord.MessageEmbed()
                             .setTitle("Mauvaise réponse")
-                            .setDescription("Désoler ce n'est pas la bonne réponse. Tu peux réessayer!");
+                            .setDescription("Désoler ce n'est pas la bonne réponse. Tu peux réessayer!")
+                            .setColor("#ff0800");
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }
@@ -58,6 +60,7 @@ module.exports.run = async (bot, message, args) => {
                         let embed = new Discord.MessageEmbed()
                             .setTitle("Temps écoulée")
                             .setDescription("Tu n'as pas réagit attends. Tu peux réessayer!")
+                            .setColor("#ff9900");
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }
