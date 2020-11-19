@@ -4,6 +4,7 @@ module.exports.run = async (bot, message, args) => {
     message.delete();
     setTimeout(() => {
         if (message.author.id === '277242592801062913') {
+            message.channel.send("I restart");
             process.exit();
         }
     }, 1000)
