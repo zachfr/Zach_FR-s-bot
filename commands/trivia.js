@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
                 .setAuthor("Thème: " + theme + " Difficulté: " + difficulte)
                 .setTitle(question)
                 .addField("Choix", `🇦 : ${choix1} \n🇧 : ${choix2}`)
-                .setFooter(message.author.name +  " | Tu as 10 secondes pour répondre!");
+                .setFooter(message.author.username +  " | Tu as 10 secondes pour répondre!");
             message.channel.send(embed).then(sentMessage => {
                 sentMessage.react('🇦');
                 sentMessage.react('🇧');
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
                             .setTitle("Bonne réponse")
                             .setDescription("Bravo à toi, tu as trouvé la bonne réponse.")
                             .setColor("#1ba124")
-                            .setFooter(message.author.name);
+                            .setFooter(message.author.username);
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }else{
@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
                             .setTitle("Mauvaise réponse")
                             .setDescription("Désoler ce n'est pas la bonne réponse. Tu peux réessayer!")
                             .setColor("#ff0800")
-                            .setFooter(message.author.name);
+                            .setFooter(message.author.username);
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }
