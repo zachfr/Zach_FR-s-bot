@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
                             .setTitle("Bonne réponse")
                             .setDescription("Bravo à toi, tu as trouvé la bonne réponse.")
                             .setColor("#1ba124")
-                            .setFooter(message.author.username);
+                            .setFooter("Nom du gagnant: " + message.author.username);
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }else{
@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
                             .setTitle("Mauvaise réponse")
                             .setDescription("Désoler ce n'est pas la bonne réponse. Tu peux réessayer!")
                             .setColor("#ff0800")
-                            .setFooter(message.author.username);
+                            .setFooter("Nom du perdant: " + message.author.username);
                         sentMessage.reactions.removeAll();
                         sentMessage.edit(embed);
                     }
