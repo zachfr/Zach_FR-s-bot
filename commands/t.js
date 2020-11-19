@@ -8,6 +8,8 @@ module.exports.run = async (bot, message, args) => {
         .setColor(colors.john_deere_green)
         .setTitle("John Deere color");
     message.channel.send(a);
+    var chiffrerandom = Math.round(Math.random());
+    console.log(chiffrerandom);
     setTimeout(() => {
         message.delete();
     }, 1000)
