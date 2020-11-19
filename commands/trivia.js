@@ -30,12 +30,12 @@ module.exports.run = async (bot, message, args) => {
                 .setAuthor("Thème: " + theme + " Difficulté: " + difficulte)
                 .setTitle(question)
                 .addField("Choix", `🇦 : ${choix1} \n🇧 : ${choix2}`)
-                .setFooter(message.author.username +  " | Tu as 10 secondes pour répondre!");
+                .setFooter(message.author.username +  " | Tu as 15 secondes pour répondre!");
             message.channel.send(embed).then(sentMessage => {
                 sentMessage.react('🇦');
                 sentMessage.react('🇧');
                 const filter = (reaction, user) => (reaction.emoji.name === '🇦' || reaction.emoji.name === '🇧') && user.id === message.author.id;
-                const collector = sentMessage.createReactionCollector(filter, { time: 10000 });
+                const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
                 collector.on('collect', collect => {
                     if(test(collect.emoji.name) === bonne_reponse){
                         collector.stop();
