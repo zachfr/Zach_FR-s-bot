@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(a);
     var chiffrerandom = Math.round(Math.random());
     message.channel.send(chiffrerandom);
+    message.channel.send("Test command!");
     console.log(chiffrerandom);
     setTimeout(() => {
         message.delete();
