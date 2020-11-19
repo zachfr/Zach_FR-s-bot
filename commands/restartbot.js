@@ -12,4 +12,4 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
     name: "restartbot"
 }
-module.exports.aliases = []
+module.exports.aliases = ["restart"]
